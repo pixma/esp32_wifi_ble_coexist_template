@@ -1,0 +1,64 @@
+# Ignore build files
+build/
+*.bin
+*.elf
+
+components/
+
+test/
+*.bin
+*.elf
+*.list
+*.map
+*.mem
+*.log
+*.lst
+
+# Ignore VSCode settings
+.vscode/
+*.code-workspace
+
+# Ignore IDF tools output directories
+idf_components/
+esp-idf/
+
+# Ignore generated files
+sdkconfig
+sdkconfig.defaults
+sdkconfig.old
+partition_table_gen.py
+
+# Ignore backup files
+*~
+*.bak
+
+# Ignore hidden files
+.*
+!.gitignore
+
+# Ignore IDE files
+.vscode/
+.cproject
+.project
+.settings/
+*.launch
+*.cproject
+*.project
+*.metadata
+
+# Ignore compiled object files
+*.o
+*.d
+*.a
+*.so
+*.lib
+
+# Ignore DS_Store files on Mac
+.DS_Store
+
+# Ignore Thumbs.db files on Windows
+Thumbs.db
+
+# Ignore hidden files and directories
+.*
+!.gitignore
