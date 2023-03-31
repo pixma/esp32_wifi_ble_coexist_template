@@ -1,0 +1,100 @@
+menu "Wi-Fi SoftAP Connection Configuration"
+
+    config ESP_SOFTAP_WIFI_SSID
+        string "SoftAP WiFi SSID"
+        default "BWM-NODE"
+        help
+            SSID (network name) for the example to connect to.
+
+    config ESP_SOFTAP_WIFI_PASSWORD
+        string "SoftAP WiFi Password"
+        default "passWord99*"
+        help
+            WiFi password (WPA or WPA2) for the example to use.
+    config ESP_SOFTAP_WIFI_CHANNEL
+        int "SoftAP WiFi Channel"
+        range 1 13
+        default 1
+        help
+            WiFi channel (network channel) for the example to use.
+
+    config ESP_SOFTAP_MAX_STA_CONN
+        int "Maximum STA connections to this SoftAP"
+        default 4
+        help
+            Max number of the STA connects to AP.
+endmenu
+
+menu "Wi-Fi Station Configuration"
+
+    config ESP_WIFI_SSID
+        string "WiFi SSID"
+        default "myssid"
+        help
+            SSID (network name) for the example to connect to.
+
+    config ESP_WIFI_PASSWORD
+        string "WiFi Password"
+        default "mypassword"
+        help
+            WiFi password (WPA or WPA2) for the example to use.
+
+    config ESP_MAXIMUM_RETRY
+        int "Maximum retry"
+        default 5
+        help
+            Set the Maximum retry to avoid station reconnecting to the AP unlimited when the AP is really inexistent.
+
+    choice ESP_WIFI_SCAN_AUTH_MODE_THRESHOLD
+        prompt "WiFi Scan auth mode threshold"
+        default ESP_WIFI_AUTH_WPA2_PSK
+        help
+            The weakest authmode to accept in the scan mode.
+            This value defaults to ESP_WIFI_AUTH_WPA2_PSK incase password is present and ESP_WIFI_AUTH_OPEN is used.
+            Please select ESP_WIFI_AUTH_WEP/ESP_WIFI_AUTH_WPA_PSK incase AP is operating in WEP/WPA mode.
+
+        config ESP_WIFI_AUTH_OPEN
+            bool "OPEN"
+        config ESP_WIFI_AUTH_WEP
+            bool "WEP"
+        config ESP_WIFI_AUTH_WPA_PSK
+            bool "WPA PSK"
+        config ESP_WIFI_AUTH_WPA2_PSK
+            bool "WPA2 PSK"
+        config ESP_WIFI_AUTH_WPA_WPA2_PSK
+            bool "WPA/WPA2 PSK"
+        config ESP_WIFI_AUTH_WPA3_PSK
+            bool "WPA3 PSK"
+        config ESP_WIFI_AUTH_WPA2_WPA3_PSK
+            bool "WPA2/WPA3 PSK"
+        config ESP_WIFI_AUTH_WAPI_PSK
+            bool "WAPI PSK"
+    endchoice
+
+endmenu
+
+menu "MQTT Configuration"
+
+    config BROKER_URL
+        string "Broker URL"
+        default "mqtt://mqtt.eclipseprojects.io"
+        help
+            URL of the broker to connect to
+
+    config BROKER_URL_FROM_STDIN
+        bool
+        default n if BROKER_URL = "FROM_STDIN"
+
+    config BROKER_TOPIC_TO_PUBLISH
+        string "Topic path for Publishing"
+        default "/topic/dual-stack/node/uplink"
+        help
+            Topic, path on which data has to be published to broker.
+    
+    config BROKER_TOPIC_TO_SUBSCRIBE
+        string "Topic path to Subscribe"
+        default "/topic/dual-stack/node/downlink"
+        help
+            Topic, path to which this node will subscribe to get data from broker.
+
+endmenu
