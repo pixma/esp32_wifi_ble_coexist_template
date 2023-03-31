@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<head>
+    <meta name="title" content="Sign-in form">
+    <meta name="description" content="A simple sign-in form for the web application.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/siimple.min.css">
+    <title>SSign In - BLE-WIFI-MQTT-NODE Portal</title>
+</head>
+
+<body class="has-bg-light">
+    <div class="container has-pt-16 has-pb-16">
+        <div class="has-w-96 has-pl-4 has-pr-4 has-ml-auto has-mr-auto">
+            <form action="/auth" method="post">
+                <div class="card is-shadowed">
+                    <h3>Sign in</h3>
+                    <div class="has-mb-4">
+                        <label class="label">Username</label>
+                        <input type="text" class="input" placeholder="username" name="username" />
+                    </div>
+                    <div class="has-mb-6">
+                        <label class="label">Password</label>
+                        <input type="password" class="input" placeholder="password" name="password" />
+                    </div>
+                    <button class="button is-full" type="submit">
+                        <i class="si-lock has-pr-1"></i>
+                        <span>Sign in</span>
+                    </button>
+                </div>
+            </form>
+            <div class="has-mt-8" align="center">
+                <a href="#" class="is-not-underlined has-text-current has-text-primary-hover">
+                    <strong>Forgot your password?</strong>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

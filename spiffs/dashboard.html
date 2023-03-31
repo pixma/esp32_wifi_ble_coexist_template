@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<head>
+    <meta name="title" content="Sign-in form">
+    <meta name="description" content="A simple sign-in form for the web application.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="/siimple.min.css">
+    <title>Dashboard - BLE-WIFI-MQTT-NODE Portal</title>
+</head>
+
+<body class="has-bg-light">
+    <div class="container has-pt-8 has-pb-24">
+        <!-- Dark navbar with action button on right -->
+        <div
+            class="container has-pt-4 has-pb-4 has-pl-6 has-pr-6 is-flex has-items-center has-flex-wrap-mobile has-bg-dark has-text-white is-rounded">
+            <!-- Navbar brand: always visible -->
+            <a class="is-flex has-items-center has-mr-6-tablet has-mr-auto-mobile has-size-2 has-text-current">
+                <i class="si-mug has-size-4 has-mr-2"></i>
+                <strong>Dashboard</strong>
+            </a>
+            <!-- Toggler button: only visible in mobile screens -->
+            <div id="navbar-toggler" class="menu has-bg-dark is-hidden-tablet"></div>
+            <!-- Navigation menu: by default hidden on mobile screens -->
+            <div id="navbar-menu" class="is-flex-tablet has-justify-between has-w-full has-mt-4-mobile">
+                <!-- Left side links -->
+                <div class="is-flex-tablet">
+                    <a class="navlink has-mb-2-mobile has-mr-2-tablet has-bg-dark">Home</a>
+                </div>
+                <!-- Right side conttent -->
+                <div class="has-ml-auto-tablet has-mt-4-mobile">
+                    <a class="button is-full">Restart</a>
+                </div>
+            </div>
+        </div>
+        <!-- Dark navbar Ends here -->
+        <div class="columns">
+            <div class="column is-two-thirds is-full-mobile">
+                <div class="card is-shadowed">
+                    <div class="siimple-card-header">
+                        <h4 class="is-capitalized">Available Access Points</h4>
+                    </div>
+                    <div class="siimple-card-body">
+                        <div class="is-inlie-block with-dropdown">
+                            <button class="button is-flex has-items-center has-pr-4">
+                                Dropdown
+                                <i class="si-chevron-down has-size-2 has-ml-2"></i>
+                            </button>
+                            <div class="dropdown">
+                                <a class="navlink is-active has-bg-highlight">Access Point</a>
+                                <a class="navlink">Access Point</a>
+                                <a class="navlink">Access Point</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column is-one-third is-full-mobile">
+                <div class="card is-shadowed">
+                    <div class="siimple-card-header">
+                        <h4 class="is-capitalized">Device Details</h4>
+                    </div>
+                    <div class="siimple-card-body">
+                        <ul class="siimple-list">
+                            <li class="siimple-list-item">Firmware Version: 1.0.0</li>
+                            <li class="siimple-list-item">CPU Frequency: 240 MHz</li>
+                            <li class="siimple-list-item">Chip ID: 1234567890</li>
+                            <li class="siimple-list-item">RAM: 520 KB</li>
+                            <li class="siimple-list-item">Flash Size: 4 MB</li>
+                            <!-- Add more details here as needed -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
