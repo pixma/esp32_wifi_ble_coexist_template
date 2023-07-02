@@ -1,6 +1,16 @@
-# ESP-IDF Partition Table
+# ESP-IDF Partition Table (S3 - 8MB)
+# ---------------------------------
+# nvs for settings :        @x9000      for 24kB    (0x6000)
+# phy_init :                @xF000      for 4kB     (0x1000)
+# factory app code area:    @x10000     for 5MB     (0x500000) : 5120 kB
+# storage data for spiffs:  @x510000    for 2560kB  (0x280000) : 2.5MB
+# Unused - ~ 448kb. [Not used for now and not allocated].
+#
+# OTA : Not mentioned or arranged - 
+# If required you may have to add "otadata" ~ 8kB and "ota_0" ~ > 1MB.
+# ---------------------------------
 # Name, Type, SubType, Offset, Size, Flags
 nvs,data,nvs,0x9000,0x6000,,
 phy_init,data,phy,0xF000,0x1000,,
-factory,app,factory,0x10000,0x300000,,
-storage,data,spiffs,0x310000,0xF0000,,
+factory,app,factory,0x10000,0x500000,,
+storage,data,spiffs,0x510000,0x280000,,
