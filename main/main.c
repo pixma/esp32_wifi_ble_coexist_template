@@ -849,8 +849,7 @@ static esp_err_t siimple_css_get_handler(httpd_req_t *req)
 
 static esp_err_t contentProvider(httpd_req_t *req, enum httpRequestedFileType fileType, int htmlFilePaths, int cssFilePaths)
 {
-    char *buffer = malloc(BUFFER_LIMIT * sizeof(char));
-    char *content = malloc(ESP_VFS_PATH_MAX * sizeof(char)); // allocate memory for content
+    char *buffer = malloc(BUFFER_LIMIT * sizeof(char));    
     char *filePath = NULL;
     size_t bytes_sent = 0;
     size_t bytes_read = 0;
@@ -862,7 +861,7 @@ static esp_err_t contentProvider(httpd_req_t *req, enum httpRequestedFileType fi
         switch (htmlFilePaths)
         {
         case NO_HTML:
-            content = "No HTML content available";
+            ESP_LOGW(TAG, "%s:%d: No HTML File is found based on the supllied enum.", __func__, __LINE__);
             break;
         case 1:
             filePath = FILE_PATH_INDEX_HTML;
@@ -871,7 +870,7 @@ static esp_err_t contentProvider(httpd_req_t *req, enum httpRequestedFileType fi
             filePath = FILE_PATH_DASHBOARD_HTML;
             break;
         default:
-            content = "Invalid HTML file path";
+            ESP_LOGW(TAG, "%s:%d: Default Case under HTML_FILE switch.", __func__, __LINE__);
             break;
         }
     }
@@ -882,7 +881,7 @@ static esp_err_t contentProvider(httpd_req_t *req, enum httpRequestedFileType fi
         switch (cssFilePaths)
         {
         case NO_CSS:
-            content = "No CSS content available";
+            ESP_LOGW(TAG, "%s:%d: No CSS content available", __func__, __LINE__);
             break;
         case 1:
             filePath = FILE_PATH_SIIMPLE_CSS;
@@ -891,13 +890,13 @@ static esp_err_t contentProvider(httpd_req_t *req, enum httpRequestedFileType fi
             filePath = FILE_PATH_SIIMPLE_CSS_ICONS;
             break;
         default:
-            content = "Invalid CSS file path";
+            ESP_LOGW(TAG, "%s:%d: Invalid CSS file path", __func__, __LINE__);
             break;
         }
     }
     else
     {
-        content = "Invalid file type requested";
+        ESP_LOGW(TAG, "%s:%d: IInvalid file type requested", __func__, __LINE__);
     }
 
     if (filePath != NULL)
